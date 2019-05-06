@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "react-teams-list-client-side-solution",
+    "id": "a8f3c2c4-b957-4b46-956a-0d65a4c2924b",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false,
+    "skipFeatureDeployment":true,"webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.ReadBasic.All"
+      },{
+        "resource": "Microsoft Graph",
+        "scope": "Groups.Read.All"
+      }
+    ]
+    
+  },
+  "paths": {
+    "zippedPackage": "solution/react-teams-list.sppkg"
+  }
+}
