@@ -1,11 +1,21 @@
 ## react-teams-list
 
 This `SPFX webpart` which can also be used as `Teams tab` lists all the teams in the tenant.
-It will display if a user is already part of a group and if not provide a `join` link
+It will display if a user is already part of a `Microsoft Teams Team` and if not provide a `join` link
+
+### In Teams
+
+![teams](./images/teams-tab.png)
+
+### In SharePoint Site
+
+![teams](./images/sharepoint.png)
+
 
 ## Used SharePoint Framework Version 
 ![1.8.1](https://img.shields.io/badge/version-1.8.1-green.svg)
 `plusBeta`
+
 
 Version|Date|Comments
 -------|----|--------
@@ -13,7 +23,29 @@ Version|Date|Comments
 
 Solution|Author(s)
 --------|---------
-rreact-teams-list|Rabia Williams
+react-teams-list|Rabia Williams
+
+
+### This webpart requires Web API Permissions for 
+
+Make sure you make this an isolated webpart, for ease of demonstration this webpart is currently not an isolated webpart and uses existing permissions granted
+
+```
+{
+"resource": "Microsoft Graph",
+"scope": "User.Read.All"
+},
+{
+"resource": "Microsoft Graph",
+"scope": "User.ReadBasic.All"
+},{
+"resource": "Microsoft Graph",
+"scope": "Groups.Read.All"
+}
+```
+
+
+![permission](./images/permission.png)
 
 ### Building the code
 
@@ -47,7 +79,7 @@ gulp package-solution - TODO
 
 - Clone this repository
 - Package the SPFX webpart
-- Copy the package `rreact-teams-list` to the appcatalog
+- Copy the package `react-teams-list` to the appcatalog
 - Copy the zip file in `teams` folder to the appcatalog
 - Upload the zip file also to the `Teams` app, via `side loading`
 - Add the app into a channel
