@@ -5,6 +5,7 @@ export interface ITeamsListProps {
 }
 export interface ITeams{
   name: string;
+  desc:string;
   member:boolean;
   owner:boolean;
   joinLink: string;

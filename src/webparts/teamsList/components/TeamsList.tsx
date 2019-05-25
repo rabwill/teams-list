@@ -1,9 +1,11 @@
 import * as React from 'react';
-import styles from './TeamsList.module.scss';
 import { ITeamsListProps, ITeams } from './ITeamsListProps';
 import { ITeamsListState } from './ITeamsListState';
 import * as q from 'q';
-
+import {
+  DocumentCard,
+  DocumentCardTitle,IDocumentCardStyles
+} from 'office-ui-fabric-react/lib/DocumentCard';
 import {
   PrimaryButton,
   TeamsComponentContext,
@@ -15,6 +17,7 @@ import {
   Surface
 
 } from 'msteams-ui-components-react';
+import styles from './TeamsList.module.scss';
 export default class TeamsList extends React.Component<ITeamsListProps, ITeamsListState> {
   constructor(props: ITeamsListProps) {
     super(props);
@@ -35,6 +38,7 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
     const teamsNames: any[] = await allTeams.map(async w => {
       return {
         name: w.displayName,
+        desc:w.description,
         member: await this.isMember(w.id),
         owner: await this.isOwner(w.id),
         joinLink: await this.getJoinLink(w.id)
@@ -175,6 +179,10 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
             section: { ...sizes.base, marginTop: rem(1.4), marginBottom: rem(1.4) },
             footer: { ...sizes.xsmall }
           };
+          const cardStyles: IDocumentCardStyles = {
+            root: { display: 'inline-block', marginRight: 20, marginBottom: 20, width: 320 }
+          };
+         
           return (<Surface>
             <Panel>
               <PanelHeader>
@@ -183,13 +191,22 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
               <PanelBody>
                 <div>{
                   this.state.teamList && this.state.teamList.length > 0 ? (
-                    <div>
+                    <div className={styles.listWrapper}>
                       <ul>
                         {
                           this.state.teamList.map(team => (
                             <li key={team.name}>
-                              {team.name}
-                              {(team.owner || team.member) ? <i className="ms-Icon ms-Icon--Accept" aria-hidden="true"> -Already joined</i> : <a href={team.joinLink}>  Link to join</a>}
+                            <DocumentCard styles={cardStyles}  onClickHref={team.joinLink}>
+                              <DocumentCardTitle title={team.name} shouldTruncate />
+                              <DocumentCardTitle title={team.desc} shouldTruncate />
+                              
+                              <div className={styles.listCard} >
+                              {(team.owner || team.member) ? 
+                               <PrimaryButton>Click to join
+                               </PrimaryButton>
+                              : <DocumentCardTitle className={styles.titlecardHeight} title="Already joined" />}
+                              </div>
+                              </DocumentCard>
                             </li>
                           ))
                         }

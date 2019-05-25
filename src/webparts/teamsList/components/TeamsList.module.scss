@@ -72,3 +72,17 @@
     }
   }
 }
+.listWrapper{
+ 
+  ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.listCard{
+  margin: 20px;
+}
+.titlecardHeight{
+  height: 20px !important;
+}
