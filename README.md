@@ -5,11 +5,11 @@ It will display if a user is already part of a `Microsoft Teams Team` and if not
 
 ### In Teams
 
-![teams](./images/teams-tab.png)
+![teams](./images/teams-list-teams.png)
 
 ### In SharePoint Site
 
-![teams](./images/sharepoint.png)
+![teams](./images/teams-tab-sp.png)
 
 
 ## Used SharePoint Framework Version 
