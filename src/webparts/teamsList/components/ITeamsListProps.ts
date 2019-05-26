@@ -2,6 +2,7 @@ import { MSGraphClient } from '@microsoft/sp-http';
 export interface ITeamsListProps {
   graphClient: MSGraphClient;
   userEmail:string;
+  description:string;
 }
 export interface ITeams{
   name: string;
@@ -9,5 +10,6 @@ export interface ITeams{
   member:boolean;
   owner:boolean;
   joinLink: string;
+  
 }
 

@@ -22,6 +22,7 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
   constructor(props: ITeamsListProps) {
     super(props);
     this.state = {
+    
       teamList: [],
       error: null,
       loading: true,
@@ -49,7 +50,7 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
     var promisedRequests = await Promise.all(teamsNames);
     this.setState({
       teamList: promisedRequests,
-      loading: false
+      loading: false,
     });
   }
   /*create a join link
@@ -186,7 +187,7 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
           return (<Surface>
             <Panel>
               <PanelHeader>
-                <div style={stylesteams.header}> List of all the teams</div>
+                <div style={stylesteams.header}> {this.props.description}</div>
               </PanelHeader>
               <PanelBody>
                 <div>{

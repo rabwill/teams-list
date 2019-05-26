@@ -36,7 +36,8 @@ export default class TeamsListWebPart extends BaseClientSideWebPart<ITeamsListWe
       TeamsList,
       {
         graphClient: client,
-        userEmail:this.context.pageContext.user.email
+        userEmail:this.context.pageContext.user.email,
+        description:this.properties.description
       }
     );
     ReactDom.render(element, this.domElement);

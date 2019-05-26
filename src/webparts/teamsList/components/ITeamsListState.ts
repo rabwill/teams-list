@@ -5,5 +5,5 @@ export interface ITeamsListState {
   loading: boolean;
   font:number;
   theme:any;
- 
+
 }
