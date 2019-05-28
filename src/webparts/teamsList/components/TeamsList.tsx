@@ -203,9 +203,10 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
                               
                               <div className={styles.listCard} >
                               {(team.owner || team.member) ? 
-                               <PrimaryButton>Click to join
+                              <DocumentCardTitle className={styles.titlecardHeight} title="Already joined" />
+                               :<PrimaryButton>Click to join
                                </PrimaryButton>
-                              : <DocumentCardTitle className={styles.titlecardHeight} title="Already joined" />}
+                               }
                               </div>
                               </DocumentCard>
                             </li>
