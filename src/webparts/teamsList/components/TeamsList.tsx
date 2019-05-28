@@ -197,7 +197,8 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
                         {
                           this.state.teamList.map(team => (
                             <li key={team.name}>
-                            <DocumentCard styles={cardStyles}  onClickHref={team.joinLink}>
+                            <a href={team.joinLink} target="_blank">
+                            <DocumentCard styles={cardStyles}>
                               <DocumentCardTitle title={team.name} shouldTruncate />
                               <DocumentCardTitle title={team.desc} shouldTruncate />
                               
@@ -209,6 +210,8 @@ export default class TeamsList extends React.Component<ITeamsListProps, ITeamsLi
                                }
                               </div>
                               </DocumentCard>
+                            </a>
+                            
                             </li>
                           ))
                         }
